@@ -33,6 +33,10 @@ public:
 	}
 
 private:
+	ice* iceWorld [64] [64]; // I wrote this
 };
 
+
+
 #endif // STUDENTWORLD_H_
+
