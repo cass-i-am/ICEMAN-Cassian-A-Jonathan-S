@@ -4,3 +4,25 @@ IceMan.xcodeproj
 
 notes.cpp
 
+freeglut_ext.h
+
+freeglut_std.h
+
+freeglut.h
+
+GameConstants.h
+
+GameController.cpp
+
+GameController.h
+
+GraphObject.h
+
+soundFX.h
+
+SpriteManager.h
+
+DerivedData
+
+
+bribed.wav
