@@ -315,9 +315,40 @@ class Iceman: public .....
 
     2. You must create a class to represent the ICEMAN in the game.
 
-    3. You must create the class to represent. 
+    3. You must create the classes for Regular Protesters, Hardcore protesters, squirts (that the iceman shoots), Water, 
+    Sonar Kits, Gold nuggets, ice, ice boulders, and barrels of oil, as well as any additional base classes (Goodie base class)
+    thats common to all pick-uppable like water, Gold Nuggets, etc, if you kneed one... that are required to implement the game
+
+
+
+    You have to create the StudentWorld Class
+
+    Your StudentWorldsClass is responsible for orchestrating virtually all game play -it keeps track of the whole game world (the ice 
+    of the field, and all of its inhabitants such as Protestors, the iceman, boulders, Goodies, etc). Its responsible for initializing 
+    the game world at the start of the game, and destroying all of the actors in the game world when the user loses a life or when actors 
+    disappear (Regular Protestors leaves the oil field after being sufficiently annoyed by being repeadedly squirted)
+
+    Your StudentWorld class must be derived from our gameworld class (found in GameWorld.h) and must implimnent at least these three methods 
+    (which are defined as pure virtual funtions in our GameWorldClass):
+ 
 
 */
 
 
 
+virtual int init() = 0;
+virtual int move() = 0;
+virtual void cleanup() = 0; 
+
+
+/*
+    The code you write must never call any of these three funtions. Instead our provided game framework will call these functions for you. 
+    So you have to impliment them correctly, but you wont ever call these functions yourself in the code.
+
+    When a new level starts (at the start of a game, or when the player completes a leveland advances to the next level), our game framework
+    will call the init() Method that you defined in your StudentWorld class. YOu dont call this function; instead, our provided framework code 
+    calls it for you.
+
+    
+
+*/
