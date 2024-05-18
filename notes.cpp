@@ -297,7 +297,27 @@ class Iceman: public .....
             If the user pressed the space bar to fire and the iceman has water then
                 Introduce a new Squirt Object into the game facing the same direction as the player;
         }
-}
+};
+
+/*
+    What do you have to do? 
+
+
+    You must creat a number of different classes to implient the iceman game. Your Classes must
+    work properly with out provided classes, and you must modify our classes of our source files in any way 
+    to get your classes to work properly. Here are the specific classes that you must create.
+
+
+    1. You must create a class called StudentWorld that is responsible for keeping track of your game world(including 
+    the oil field) and all of its actors/objects (e.g. the iceman, protestors, boulders, ice etc) that are inside of 
+    the oil field.
+
+
+    2. You must create a class to represent the ICEMAN in the game.
+
+    3. You must create the class to represent. 
+
+*/
 
 
 
