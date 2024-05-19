@@ -1,37 +1,5 @@
-IceMan.xcodeproj
+notes.cpp
 
-.DS_Store
+Vector.cpp
 
-
-freeglut_ext.h
-
-freeglut_std.h
-
-freeglut.h
-
-GameConstants.h
-
-GameController.cpp
-
-GameController.h
-
-GraphObject.h
-
-soundFX.h
-
-SpriteManager.h
-
-DerivedData
-
-
-bribed.wav
-
-iceman.txt
-
-SpriteManager.h
-
-Debug
-
-
-ik_ESoundEngineOptions.h
 
