@@ -8,37 +8,37 @@
 
 *.vs
 
-*.vs\
+*.vs/
 
 *.DS_Store
 
-*.DS_Store\
+*.DS_Store/
 
-\Debug
+IceMan-skeleton-windows/Debug
 
-\IceMan\GraphObject.h
+IceMan-skeleton-windows/IceMan/GraphObject.h
 
-\IceMan\main.cpp
+IceMan-skeleton-windows/IceMan/main.cpp
 
-\IceMan\SoundFX.h
+IceMan-skeleton-windows/IceMan/SoundFX.h
 
-\IceMan\SpriteManager.h
+IceMan-skeleton-windows/IceMan/SpriteManager.h
 
-\IceMan\freeglut.h
+IceMan-skeleton-windows/IceMan/freeglut.h
 
-\IceMan\freeglut_ext.h
+IceMan-skeleton-windows/IceMan/freeglut_ext.h
 
-\IceMan\freeglut_std.h
+IceMan-skeleton-windows/IceMan/freeglut_std.h
 
-\IceMan\GameConstants.h
+IceMan-skeleton-windows/IceMan/GameConstants.h
 
-\IceMan\GameController.cpp
+IceMan-skeleton-windows/IceMan/GameController.cpp
 
-\IceMan\GameController.h
+IceMan-skeleton-windows/IceMan/GameController.h
 
-\IceMan\GameWorld.cpp
+IceMan-skeleton-windows/IceMan/GameWorld.cpp
 
-\IceMan\irrKlang
+IceMan-skeleton-windows/IceMan/irrKlang
 
-\IceMan\Debug
+IceMan-skeleton-windows/IceMan/Debug
 
