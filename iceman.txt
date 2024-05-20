@@ -1,4 +1,0 @@
-Actor.h
-Actor.cpp
-StudentWorld.h
-StudentWorld.cpp
