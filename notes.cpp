@@ -703,4 +703,27 @@ IID_WATER_POOL
 
         setVisible(true); 
 
-        
+
+
+// Attempt to start coding
+
+// 1. create student world class 
+
+//      1. derived from the GameWorld class 
+//      2. Must impliment 
+            virtual int init() = 0; 
+            virtual int move() = 0; 
+            virtual void CleanUp() = 0; 
+        3. Heirchy of construction 
+            base class - Gameworld
+            derived - Student World // from gameworld
+            member function - init() create the member function
+            derived class - ice called by the init()
+            container - 2d vector of pointers to the ice
+            
+            
+
+// GameWorld is already created
+
+// create the student wold class from the base class of gameworld class.
+
