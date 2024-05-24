@@ -23,10 +23,9 @@ class GraphObject
 
 	enum Direction { none, up, down, left, right };
 
-	GraphObject(int imageID, int startX, int startY, Direction dir = right, double size = 1.0, unsigned int depth = 0)
-	 : m_imageID(imageID), m_visible(false), m_x(startX), m_y(startY),
-	   m_destX(startX), m_destY(startY), m_brightness(1.0),
-	   m_animationNumber(0), m_direction(dir), m_size(size), m_depth(depth)
+	GraphObject(int imageID, int startX, int startY, Direction dir = right, double size = 1.0, unsigned int depth = 0) 
+			:m_imageID(imageID), m_visible(false), m_x(startX), m_y(startY), m_destX(startX), m_destY(startY), m_brightness(1.0),
+	   		 m_animationNumber(0), m_direction(dir), m_size(size), m_depth(depth)
 	{
 		if (m_size <= 0)
 			m_size = 1;

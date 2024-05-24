@@ -10,17 +10,20 @@ class GameController;
 
 class GameWorld
 {
+
+private:
+	unsigned int	m_lives;
+	unsigned int	m_score;
+	unsigned int	m_level;
+	GameController* m_controller;
+	std::string		m_assetDir;
+
 public:
 
 	GameWorld(std::string assetDir)
-	 : m_lives(START_PLAYER_LIVES), m_score(0), m_level(0),
-	   m_controller(nullptr), m_assetDir(assetDir)
-	{
-	}
+	 : m_lives(START_PLAYER_LIVES), m_score(0), m_level(0), m_controller(nullptr), m_assetDir(assetDir){}
 
-	virtual ~GameWorld()
-	{
-	}
+	virtual ~GameWorld(){}
 	
 	virtual int init() = 0;
 	virtual int move() = 0;
@@ -83,12 +86,7 @@ public:
 		return m_assetDir;
 	}
 	
-private:
-	unsigned int	m_lives;
-	unsigned int	m_score;
-	unsigned int	m_level;
-	GameController* m_controller;
-	std::string		m_assetDir;
+
 };
 
 #endif // GAMEWORLD_H_
