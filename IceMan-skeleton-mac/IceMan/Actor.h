@@ -27,13 +27,33 @@ public:
 
 // Game Objects
 
-class GameObject : public GraphObject{
+
+class Ice : public GraphObject {
+public:
+    Ice(int startX, StartY): GraphObject(IID_ICE, startX, startY, right, 0.9, .3){
+        setVisible(true);
+    }
+
+    virtual void doSomething() override {
+        //ice does something;
+        //setVisibility(IID_ICE) = true; 
+    }
+
+};
+
+
+
+class GoldNugget : public GraphObject{
+public:
+
+};
+
+class OilBarrel : public GraphObject {
 public:
 
 };
 
 
-class Ice : 
 
 
 
