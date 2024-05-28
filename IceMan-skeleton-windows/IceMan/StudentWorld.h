@@ -93,6 +93,14 @@ public:
 	}
 
 private:
+
+Iceman* iceman;
+
+Ice* IceField[64][64];
+
 };
+
+
+
 
 #endif // STUDENTWORLD_H_
