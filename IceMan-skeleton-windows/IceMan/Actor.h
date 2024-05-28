@@ -9,6 +9,8 @@
 class Actor : public GraphObject{
 public:
 
+    Actor(int imageID, int startx, int starty, Direction dir, StudentWorld* world, double size, unsigned int depth);
+
 }; 
 
 // Charachters 
@@ -36,7 +38,7 @@ public:
 
     virtual void doSomething() override {
         //ice does something;
-        //setVisibility(IID_ICE) = true; 
+        // setVisibility(IID_ICE) = true; 
     }
 
 };
