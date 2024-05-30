@@ -17,13 +17,19 @@ public:
 
 class Protester: public Actor {
 public:
+    Protester(int ImageID, int startX, int startY, Direction dir, double size, unsigned int dept) : Actor(ImageID, startX, startY, dir, size, depth){
+        setVisibility(true);
+    }
 
 };
 
 
 class HardcoreProtester: public Protester {
 public: 
-
+    HardcoreProtester(int startX, int startY): Protester(IID_HARD_CORE_PROTESTER, startX, startY, left, 1, 0){
+        setVisibility(true); 
+    }
+ 
 };
 
 
@@ -37,8 +43,7 @@ public:
     }
 
     virtual void doSomething() override {
-        //ice does something;
-        // setVisibility(IID_ICE) = true; 
+
     }
 
 };
@@ -48,11 +53,17 @@ public:
 
 class GoldNugget : public GraphObject{
 public:
-
+    GoldNugget(int startX, int startY, bool isPermanent): GraphObject (IID_GLD, startX, startY, right, 1, 2){
+        setVisibility(true);
+        m_isPermanent = isPermanent; 
+    }
 };
 
 class OilBarrel : public GraphObject {
 public:
+    OIlBarrel(int startX, int startY): GraphObject(IID_OIL_BARREL, startX, startY, right, 1, 2){
+        setVisibility(true);
+    }
 
 };
 

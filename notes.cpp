@@ -727,3 +727,27 @@ IID_WATER_POOL
 
 // create the student wold class from the base class of gameworld class.
 
+// This is the part where you create the rest of the actors to be used in the game.
+
+// We will use the ice actor as an example to create the rest of the actors first 
+
+// The iceman. Then you will creae the rest of the actors. 
+
+// Once you create the iceman class and the other game objects all you have to do 
+
+// Is create the. vector that holds the destroyed game objects.
+
+// The other thing is to impliment the 3 virtual funtions for each actor etc 
+
+// because the each will do something ddifferent. 
+
+
+// After the whole game is implimented, and pushed onto main... You will have to 
+
+// RUn test verifying that the integration worked and all the values that were used 
+
+// Were passed properly into each class were they were supposed to and we will just have 
+
+// to worry aboutl the different implimentation and design 
+
+// of the game itself. I think that after this we will get a very high score for our final project
