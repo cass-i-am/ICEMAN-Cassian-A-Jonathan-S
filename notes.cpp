@@ -751,3 +751,24 @@ IID_WATER_POOL
 // to worry aboutl the different implimentation and design 
 
 // of the game itself. I think that after this we will get a very high score for our final project
+
+
+// The first thing that we have to do is to create the student world class.
+
+// The student world class is derived from the GameWorld class.
+
+// The student world class must impliment the following methods
+
+//      virtual int init() = 0;
+
+//      virtual int move() = 0;
+
+//      virtual void cleanup() = 0;
+
+// The student world class must also have a constructor that takes in the level data and the game controller
+
+// The student world class must also have a destructor that deletes all the actors in the game world
+
+// The student world class must also have a method that updates the display text at the top of the screen
+
+// The student world class must also have a method that updates the game status line
