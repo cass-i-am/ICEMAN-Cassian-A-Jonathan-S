@@ -721,7 +721,31 @@ IID_WATER_POOL
             derived class - ice called by the init()
             container - 2d vector of pointers to the ice
             
-            
+
+
+
+// Set Display text in defined in studentworld.cpp 
+void studentworld::setDisplayText(){
+    int level = getLevel();
+    int lives = getLives();
+    int health = getHealth();
+    int squirts = getSquirts();
+    int gold = getGold();
+    int barrels = getBarrels();
+    int sonar = getSonar();
+    int score = getScore();
+
+    string s = formatString(level, lives, health, squirts, gold, barrels, sonar, score);
+    setGameStatText(s);
+
+    ostringstream oss;
+    oss << "Lvl: " << level << " Lives: " << lives << " Hlth: " << health << " Wtr: " << squirts << " Gld: " << gold << " Oil Left: " << barrels << " Sonar: " << sonar << " Scr: " << score;
+
+}
+
+In actor.h 
+
+
 
 // GameWorld is already created
 
