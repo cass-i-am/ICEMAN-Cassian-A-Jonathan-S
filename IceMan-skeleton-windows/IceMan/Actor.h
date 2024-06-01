@@ -32,6 +32,65 @@ public:
  
 };
 
+class Iceman : public Actor {
+public:
+    Iceman(int startX, int startY): Actor(IID_PLAYER, startX, startY, right, 1, 0){
+        setVisibility(true);
+    }
+
+    virtual void doSomething() override {
+        int ch;
+        if(getWorld()->getKey(ch)){
+            switch(ch){
+                case KEY_PRESS_LEFT:
+                    if(getDirection() == left){
+                        if(getX() > 0){
+                            moveTo(getX() - 1, getY());
+                        }
+                    } else {
+                        setDirection(left);
+                    }
+                    break;
+                case KEY_PRESS_RIGHT:
+                    if(getDirection() == right){
+                        if(getX() < 60){
+                            moveTo(getX() + 1, getY());
+                        }
+                    } else {
+                        setDirection(right);
+                    }
+                    break;
+                case KEY_PRESS_UP:
+                    if(getDirection() == up){
+                        if(getY() < 60){
+                            moveTo(getX(), getY() + 1);
+                        }
+                    } else {
+                        setDirection(up);
+                    }
+                    break;
+                case KEY_PRESS_DOWN:
+                    if(getDirection() == down){
+                        if(getY() > 0){
+                            moveTo(getX(), getY() - 1);
+                        }
+                    } else {
+                        setDirection(down);
+                    }
+                    break;
+                case KEY_PRESS_SPACE:
+                    // Shoot
+                    break;
+                case KEY_PRESS_ESCAPE:
+                    // Quit
+                    break;
+            }
+        }
+    }
+
+};
+}
+
 
 // Game Objects
 
