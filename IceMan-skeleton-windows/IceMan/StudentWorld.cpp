@@ -3,6 +3,9 @@
 #include <vector>
 using namespace std;
 
+template<typename T>
+class list;
+
 GameWorld* createStudentWorld(string assetDir)
 {
 	return new StudentWorld(assetDir);
@@ -10,6 +13,7 @@ GameWorld* createStudentWorld(string assetDir)
 
 int StudentWorld::init() {
 	//populate student world
+
 	for (int x = 0; x < 60; x++) {
 		for (int y = 0; y < 60; y++) {
 			if (x < 28 || x > 32) {
@@ -21,6 +25,12 @@ int StudentWorld::init() {
 			}
 		}
 	}
+
+	iceMan = new Player{ IID_PLAYER, 30, 60 };
+	iceMan->setVisible(true);
+
+
+
 
 	/*
 	

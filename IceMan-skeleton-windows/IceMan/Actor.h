@@ -12,7 +12,17 @@ public:
 };
 
 class Player : public Actor {
+private:
+	int hp;
+	int sonar;
+	int gold;
 public:
+	Player(int img_ID, int startX, int startY, Direction dir = right, double size = 1.0, unsigned int depth = 0) : Actor(img_ID, startX, startY, dir, size, depth) 
+	{
+		hp = 10;
+		sonar = 1;
+		gold = 0;
+	};
 	virtual void doSomething() {};
 };
 
