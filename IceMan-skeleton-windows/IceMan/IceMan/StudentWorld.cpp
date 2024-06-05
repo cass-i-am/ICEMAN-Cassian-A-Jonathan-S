@@ -1,34 +1,108 @@
 #include "StudentWorld.h"
+#include "GameConstants.h"
 #include <string>
 using namespace std;
 
-GameWorld* createStudentWorld(string assetDir)
-{
-	return new StudentWorld(assetDir);
+GameWorld* createStudentWorld(string assetDir) {
+    return new StudentWorld(assetDir);
 }
 
-// Students:  Add code to this file (if you wish), StudentWorld.h, Actor.h and Actor.cpp
+int StudentWorld::init() {
+    // Initialize Ice field
+    for (int r = 0; r < 64; r++) {
+        for (int c = 0; c < 64; c++) {
+            if (r >= 30 && r <= 33 && c >= 30 && c <= 33) {
+                iceField[r][c] = nullptr;
+            } else {
+                iceField[r][c] = new Ice(r, c);
+            }
+        }
+    }
 
-int StudentWorld::init(){
+    // Initialize Iceman
+    iceman = new Iceman(30, 60);
+    actors.push_back(iceman);
 
-	// p1 =
+    // Initialize other actors (e.g., Boulders, Gold Nuggets, Barrels of Oil)
+    // ...
 
-	int rows = 64;
-	int cols = 64; 
-	
-	for(int rws = 0; rws < rows ; rws++){
-		for(int clms = 0; clms < cols; clms++){
-			IceField[rws][clms] = new Ice(rws, clms, this);
-		}
+    return GWSTATUS_CONTINUE_GAME;
+}
 
-		if (rws >= 30 && rws <= 33){
-			for(int clms = 30; clms <= 33; clms++){
-				IceField[rws][clms] = nullptr;
-			}
-		}
-	}
+int StudentWorld::move() {
+    // Update game status line
+    updateDisplayText();
 
+    // Give each actor a chance to do something
+    for (auto actor : actors) {
+        if (actor->isAlive()) {
+            actor->doSomething();
+            if (thePlayerDiedDuringThisTick()) {
+                decLives();
+                return GWSTATUS_PLAYER_DIED;
+            }
+        }
+    }
 
+    // Remove dead actors
+    removeDeadGameObjects();
 
-	return GWSTATUS_CONTINUE_GAME;
+    // Check if the player completed the current level
+    if (thePlayerCompletedTheCurrentLevel()) {
+        playSound(SOUND_FINISHED_LEVEL);
+        return GWSTATUS_FINISHED_LEVEL;
+    }
+
+    // The player hasn't completed the current level and hasn't died
+    return GWSTATUS_CONTINUE_GAME;
+}
+
+void StudentWorld::cleanUp() {
+    // Delete all actors
+    for (auto actor : actors) {
+        delete actor;
+    }
+    actors.clear();
+
+    // Delete Ice field
+    for (int r = 0; r < 64; r++) {
+        for (int c = 0; c < 64; c++) {
+            delete iceField[r][c];
+            iceField[r][c] = nullptr;
+        }
+    }
+
+    // Delete Iceman
+    delete iceman;
+    iceman = nullptr;
+}
+
+void StudentWorld::updateDisplayText() {
+    // Update the score/lives text at the screen top
+}
+
+void StudentWorld::removeDeadGameObjects() {
+    auto it = actors.begin();
+    while (it != actors.end()) {
+        if (!(*it)->isAlive()) {
+            delete *it;
+            it = actors.erase(it);
+        } else {
+            ++it;
+        }
+    }
+}
+
+bool StudentWorld::thePlayerDiedDuringThisTick() {
+    return !iceman->isAlive();
+}
+
+bool StudentWorld::thePlayerCompletedTheCurrentLevel() {
+    // Check if the player completed the level
+    // This could be based on specific game conditions
+    return false; // Replace with actual condition
+}
+
+void StudentWorld::tellThisActorToDoSomething(Actor* actor) {
+    actor->doSomething();
 }
