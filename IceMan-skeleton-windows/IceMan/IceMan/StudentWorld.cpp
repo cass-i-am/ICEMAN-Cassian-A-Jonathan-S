@@ -9,15 +9,29 @@ GameWorld* createStudentWorld(string assetDir) {
 
 int StudentWorld::init() {
     // Initialize Ice field
-    for (int r = 0; r < 64; r++) {
+    for (int r = 0; r < 64 - 4; r++) {
         for (int c = 0; c < 64; c++) {
-            if (r >= 30 && r <= 33 && c >= 30 && c <= 33) {
-                iceField[r][c] = nullptr;
-            } else {
                 iceField[r][c] = new Ice(r, c, this);
             }
         }
+    
+
+    for (int r = 0; r < 64 - 4; r++){
+        for (int c = 0; c < 64; c++){
+            if (r >= 30 && r < 34 && c > 3) {
+                iceField[r][c]->setVisible(false);
+            }
+        }
     }
+
+
+
+// for (int y = 0; y < rows - 4; y++){
+//     for (int x = 0; x < columns; x++){
+//         if (x >= 30 && x < 34 && y > 3)
+//             iceField[x][y]->setVisible(false);
+//         }
+//     }
 
     // Initialize Iceman
     iceman = new Iceman(30, 60, this);
