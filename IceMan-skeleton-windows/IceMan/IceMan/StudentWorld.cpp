@@ -14,13 +14,13 @@ int StudentWorld::init() {
             if (r >= 30 && r <= 33 && c >= 30 && c <= 33) {
                 iceField[r][c] = nullptr;
             } else {
-                iceField[r][c] = new Ice(r, c);
+                iceField[r][c] = new Ice(r, c, this);
             }
         }
     }
 
     // Initialize Iceman
-    iceman = new Iceman(30, 60);
+    iceman = new Iceman(30, 60, this);
     actors.push_back(iceman);
 
     // Initialize other actors (e.g., Boulders, Gold Nuggets, Barrels of Oil)
