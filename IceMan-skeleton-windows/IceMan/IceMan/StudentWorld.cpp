@@ -26,12 +26,7 @@ int StudentWorld::init() {
 
 
 
-// for (int y = 0; y < rows - 4; y++){
-//     for (int x = 0; x < columns; x++){
-//         if (x >= 30 && x < 34 && y > 3)
-//             iceField[x][y]->setVisible(false);
-//         }
-//     }
+
 
     // Initialize Iceman
     iceman = new Iceman(30, 60, this);
@@ -119,4 +114,12 @@ bool StudentWorld::thePlayerCompletedTheCurrentLevel() {
 
 void StudentWorld::tellThisActorToDoSomething(Actor* actor) {
     actor->doSomething();
+}
+
+
+void StudentWorld::destroyIce(int x, int y){
+    if(iceField[x][y] !=nullptr && iceField[x][y]->isVisible()){
+        playSound(SOUND_DIG);
+        iceField[x][y]->setVisible(false); 
+    }
 }

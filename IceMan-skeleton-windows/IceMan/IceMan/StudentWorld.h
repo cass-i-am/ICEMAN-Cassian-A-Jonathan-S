@@ -14,6 +14,7 @@ public:
     virtual int init() override;
     virtual int move() override;
     virtual void cleanUp() override;
+    void destroyIce(int x, int y);
 
 private:
     Iceman* iceman;
@@ -26,5 +27,9 @@ private:
     bool thePlayerCompletedTheCurrentLevel();
     void tellThisActorToDoSomething(Actor* actor);
 };
+
+
+
+
 
 #endif // STUDENTWORLD_H_

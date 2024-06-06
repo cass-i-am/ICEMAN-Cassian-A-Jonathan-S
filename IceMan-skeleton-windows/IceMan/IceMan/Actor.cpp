@@ -39,6 +39,15 @@ void Iceman::doSomething() {
                 break;
         }
     }
+
+    int icemanX = getX();
+    int icemanY = getY();
+
+    for(int x = icemanX; x < icemanX + 4; x++){
+        for(int y =  icemanY; y < icemanY + 4; y++){
+            getWorld()->destroyIce(x,y); 
+        }
+    }
 }
 
 Protester::Protester(int imageID, int startX, int startY, StudentWorld* world, Direction dir, double size, unsigned int depth)
