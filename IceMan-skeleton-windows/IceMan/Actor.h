@@ -3,131 +3,64 @@
 
 #include "GraphObject.h"
 
-// Students:  Add code to this file, Actor.cpp, StudentWorld.h, and StudentWorld.cpp
+// Forward declaration of StudentWorld
+class StudentWorld;
 
-
-class Actor : public GraphObject{
+class Actor : public GraphObject {
 public:
+    Actor(int imageID, int startX, int startY, Direction dir, StudentWorld* world, double size = 1.0, unsigned int depth = 0);
+    virtual void doSomething() = 0; // pure virtual function making Actor an abstract class
+    virtual bool isAlive() const { return alive; }
+    virtual void setDead() { alive = false; }
+    virtual ~Actor() = 0; // pure virtual destructor to make the class abstract
 
-    Actor(int imageID, int startx, int starty, Direction dir, StudentWorld* world, double size, unsigned int depth);
+protected:
+    StudentWorld* getWorld() const { return m_world; }
 
-}; 
-
-// Charachters 
-
-class Protester: public Actor {
-public:
-    Protester(int ImageID, int startX, int startY, Direction dir, double size, unsigned int dept) : Actor(ImageID, startX, startY, dir, size, depth){
-        setVisibility(true);
-    }
-
+private:
+    bool alive;
+    StudentWorld* m_world;
 };
 
-
-class HardcoreProtester: public Protester {
-public: 
-    HardcoreProtester(int startX, int startY): Protester(IID_HARD_CORE_PROTESTER, startX, startY, left, 1, 0){
-        setVisibility(true); 
-    }
- 
-};
+inline Actor::~Actor() {} // Provide a definition for the pure virtual destructor
 
 class Iceman : public Actor {
 public:
-    Iceman(int startX, int startY): Actor(IID_PLAYER, startX, startY, right, 1, 0){
-        setVisibility(true);
-    }
-
-    virtual void doSomething() override {
-        int ch;
-        if(getWorld()->getKey(ch)){
-            switch(ch){
-                case KEY_PRESS_LEFT:
-                    if(getDirection() == left){
-                        if(getX() > 0){
-                            moveTo(getX() - 1, getY());
-                        }
-                    } else {
-                        setDirection(left);
-                    }
-                    break;
-                case KEY_PRESS_RIGHT:
-                    if(getDirection() == right){
-                        if(getX() < 60){
-                            moveTo(getX() + 1, getY());
-                        }
-                    } else {
-                        setDirection(right);
-                    }
-                    break;
-                case KEY_PRESS_UP:
-                    if(getDirection() == up){
-                        if(getY() < 60){
-                            moveTo(getX(), getY() + 1);
-                        }
-                    } else {
-                        setDirection(up);
-                    }
-                    break;
-                case KEY_PRESS_DOWN:
-                    if(getDirection() == down){
-                        if(getY() > 0){
-                            moveTo(getX(), getY() - 1);
-                        }
-                    } else {
-                        setDirection(down);
-                    }
-                    break;
-                case KEY_PRESS_SPACE:
-                    // Shoot
-                    break;
-                case KEY_PRESS_ESCAPE:
-                    // Quit
-                    break;
-            }
-        }
-    }
-
+    Iceman(int startX, int startY, StudentWorld* world);
+    virtual void doSomething() override;
 };
-}
 
-
-// Game Objects
-
-
-class Ice : public GraphObject {
+class Protester : public Actor {
 public:
-    Ice(int startX, StartY): GraphObject(IID_ICE, startX, startY, right, 0.9, .3){
-        setVisible(true);
-    }
-
-    virtual void doSomething() override {
-
-    }
-
+    Protester(int imageID, int startX, int startY, StudentWorld* world, Direction dir = left, double size = 1.0, unsigned int depth = 0);
+    virtual void doSomething() override = 0; // Protester is abstract
 };
 
+class HardcoreProtester : public Protester {
+public: 
+    HardcoreProtester(int startX, int startY, StudentWorld* world);
+    virtual void doSomething() override;
+};
 
-
-
-class GoldNugget : public GraphObject{
+class Ice : public Actor {
 public:
-    GoldNugget(int startX, int startY, bool isPermanent): GraphObject (IID_GLD, startX, startY, right, 1, 2){
-        setVisibility(true);
-        m_isPermanent = isPermanent; 
-    }
+    Ice(int startX, int startY, StudentWorld* world);
+    virtual void doSomething() override;
 };
 
-class OilBarrel : public GraphObject {
+class GoldNugget : public Actor {
 public:
-    OIlBarrel(int startX, int startY): GraphObject(IID_OIL_BARREL, startX, startY, right, 1, 2){
-        setVisibility(true);
-    }
+    GoldNugget(int startX, int startY, bool isPermanent, StudentWorld* world);
+    virtual void doSomething() override;
 
+private:
+    bool m_isPermanent;
 };
 
-
-
-
+class OilBarrel : public Actor {
+public:
+    OilBarrel(int startX, int startY, StudentWorld* world);
+    virtual void doSomething() override;
+};
 
 #endif // ACTOR_H_
